@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed;
+    private float speed;
     [SerializeField] float turnSpeed = 30f;
     [SerializeField] float horizontalInput;
     [SerializeField] float verticalInput;
     private Rigidbody playerRb;
+    [SerializeField] float horsePower;
     [SerializeField] TextMeshProUGUI speedometer;
 
     private void Start()
@@ -23,14 +24,12 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         //we'll move the vehicle forward
-        transform.Translate(Vector3.forward*Time.deltaTime*speed*verticalInput);
+        //transform.Translate(Vector3.forward*Time.deltaTime*speed*verticalInput);
+        playerRb.AddRelativeForce(Vector3.forward * horsePower * verticalInput);
         //rotate the vehicle
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
 
-        speed = playerRb.velocity.magnitude * 3.6f;
+        speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 3.6f);
         speedometer.SetText("Speed : " + speed + " km/h");
-
-        //ADD FORCE 
-        // ROUND KM/H
     }
 }
