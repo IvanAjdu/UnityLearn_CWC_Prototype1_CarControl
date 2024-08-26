@@ -1,6 +1,6 @@
-Level 1 Code Comprehension: <br>
-Interpret basic code in a Unity code base
-Improve simple code using the features of an IDE
+<strong>Level 1 Code Comprehension:</strong> <br>
+Interpret basic code in a Unity code base<br>
+Improve simple code using the features of an IDE<br>
 
-Level 1 Application Scripting: <br>
+<strong>Level 1 Application Scripting:</strong> <br>
 Prototype new concepts
